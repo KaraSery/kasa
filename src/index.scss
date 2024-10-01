@@ -1,0 +1,35 @@
+@font-face {
+  font-family: 'Montserrat';
+  src: url('../assets/fonts/Montserrat/Montserrat-VariableFont_wght.ttf');;
+}
+*, *:before, *:after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  text-decoration: none;
+  list-style: none;
+  font: inherit;
+  font-family: 'Montserrat';
+  font-weight: 500;
+  color: inherit;
+}
+body{
+  // Make body take minimum full screen height
+  // It does not work with flex direction column
+  display: flex;
+  min-height: 100vh;
+}
+#app {
+  // Make #app flex column and justify space between
+  // in such way header and footer will stick to top and bottom in order
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  main {
+    // main take minimum height of content
+    // and 100% by default
+    min-height: fit-content;
+    height: 100%;
+  }
+}

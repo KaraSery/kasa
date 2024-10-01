@@ -1,0 +1,25 @@
+.main-footer {
+  background-color: black;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  padding-block: 68px 50px;
+  @media (min-width: 1024px) {
+    padding-bottom: 20px;
+  }
+  .kasa-logo {
+    height: auto;
+    width: 122px;
+  }
+  p {
+    text-align: center;
+    width: 100%;
+    max-width: 133px;
+    @media(min-width: 1024px) {
+      width: max-content;
+      max-width: unset;
+    }
+  }
+}

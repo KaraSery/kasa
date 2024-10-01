@@ -1,0 +1,27 @@
+.error-404 {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  text-align: center;
+  gap: 113px;
+  padding-block: 113px;
+  padding-inline: 50px;
+  .error-404__title, .error-404__text {
+    color: #FF6060;
+  }
+  .error-404__title {
+    font-size: 96px;
+    font-weight: 700;
+  }
+  .error-404__text {
+    font-size: 18px;
+    font-weight: 500;
+    line-height: 25px;
+  }
+  .error-404__back-home {
+    text-decoration: underline;
+    font-size: 14px;
+
+  }
+}
