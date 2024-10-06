@@ -1,0 +1,19 @@
+#banner {
+  background: url("../../public/assets/eric-muhr-P.jpeg") center / cover;
+  height: 111px;
+  width: 100%;
+  font-size: 24px;
+  font-weight: 700;
+  color: white;
+  border-radius: 10px;
+  @media(min-width: 1024px) {
+    height: 223px;
+    border-radius: 25px;
+  }
+}
+#gallery {
+  @media(min-width: 1024px) {
+    background-color: #F6F6F6;
+    padding: 20px;
+  }
+}

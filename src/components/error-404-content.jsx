@@ -1,6 +1,8 @@
-import {Link} from "react-router-dom";
+import {Link, useRouteError} from "react-router-dom";
 import './error-404-content.scss'
 export default function Error404Content() {
+    let error = useRouteError();
+    console.error(error);
     return(
         <div className="error-404">
             <h1 className="error-404__title">404</h1>

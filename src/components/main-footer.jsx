@@ -1,4 +1,4 @@
-import KasaLogo from '../../assets/kasa-logo__white.png';
+import KasaLogo from '../../public/assets/kasa-logo__white.png';
 
 import './main-footer.scss'
 

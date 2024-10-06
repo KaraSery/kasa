@@ -4,20 +4,40 @@ import { createRoot } from 'react-dom/client';
 import './index.scss'
 
 import {
-    createBrowserRouter,
+    createBrowserRouter, json,
     RouterProvider
 } from 'react-router-dom';
 
-import App from './App';
 import Root from './routes/root'
-import ErrorPage from "./routes/error-page";
+import Error404Content from "./components/error-404-content";
+
+import Homepage, {getData} from "./routes/homepage";
+import LodgmentDetails, {getLodgmentDetail} from "./routes/lodgment-details";
+
 
 const router = createBrowserRouter(
     [
         {
             path: "/",
             element: <Root />,
-            errorElement: <ErrorPage />
+            errorElement: <Error404Content />,
+            children: [
+                {
+                    path: '',
+                    element: <Homepage />,
+                    loader: getData,
+                },
+                {
+                    path: 'detail/:id',
+                    element: <LodgmentDetails />,
+                    loader: getLodgmentDetail,
+                },
+                {
+                    path: 'about/',
+                    element: <LodgmentDetails />,
+                    loader: getData,
+                },
+            ]
         }
     ]
 )

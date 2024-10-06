@@ -5,6 +5,7 @@ const ReactRefreshWebpackPlugin = require('@pmmmwh/react-refresh-webpack-plugin'
 const isDevelopment = true
 module.exports = {
     mode: isDevelopment ? 'development' : 'production',
+    target: ['web', 'es2020'],
     entry: "./src/index.js",
     module: {
         rules: [
@@ -38,13 +39,13 @@ module.exports = {
     },
     resolve: { extensions: ["*", ".js", ".jsx"] },
     output: {
-        path: path.resolve(__dirname, "dist/"),
-        publicPath: "/dist/",
-        filename: "index.js"
+        path: path.resolve(__dirname, "public/dist/"),
+        publicPath: "/public/dist/",
+        filename: "index.js",
     },
     devtool: 'inline-source-map',
     devServer: {
-        static: './dist',
+        static: ['./public/dist', './public/'],
         historyApiFallback: true,
     },
     plugins: [
