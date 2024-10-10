@@ -1,19 +1,25 @@
-#banner {
-  background: url("../../public/assets/eric-muhr-P.jpeg") center / cover;
-  height: 111px;
-  width: 100%;
-  font-size: 24px;
-  font-weight: 700;
-  color: white;
-  border-radius: 10px;
-  @media(min-width: 1024px) {
-    height: 223px;
-    border-radius: 25px;
+.homepage {
+  .banner {
+    font-size: 24px;
+    font-weight: 700;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    @media(min-width: 1024px) {
+      font-size: 42px;
+    }
+    .background {
+      background-image: url("../../public/assets/eric-muhr-P.jpeg");
+    }
+    .banner__title {
+      z-index: 1;
+    }
   }
-}
-#gallery {
-  @media(min-width: 1024px) {
-    background-color: #F6F6F6;
-    padding: 20px;
+  #gallery {
+    @media(min-width: 1024px) {
+      background-color: #F6F6F6;
+      padding: 20px;
+    }
   }
 }

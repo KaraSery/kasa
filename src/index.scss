@@ -20,10 +20,6 @@ body{
   min-height: 100vh;
 }
 main {
-  padding-inline: 20px;
-  padding-block: 0px 30px;
-  max-width: 1240px;
-  margin-inline: auto;
 }
 #app {
   // Make #app flex column and justify space between
@@ -37,5 +33,11 @@ main {
     // and 100% by default
     min-height: fit-content;
     height: 100%;
+
+    padding-inline: 20px;
+    padding-block: 0px 30px;
+    width: 100%;
+    max-width: 1240px;
+    margin-inline: auto;
   }
 }

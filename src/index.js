@@ -13,6 +13,7 @@ import Error404Content from "./components/error-404-content";
 
 import Homepage, {getData} from "./routes/homepage";
 import LodgmentDetails, {getLodgmentDetail} from "./routes/lodgment-details";
+import AboutPage from "./routes/about";
 
 
 const router = createBrowserRouter(
@@ -34,8 +35,7 @@ const router = createBrowserRouter(
                 },
                 {
                     path: 'about/',
-                    element: <LodgmentDetails />,
-                    loader: getData,
+                    element: <AboutPage />
                 },
             ]
         }

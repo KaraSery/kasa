@@ -1,0 +1,39 @@
+@import "../scss/variables";
+.details {
+  background-color: $bg-gray-light;
+  height: fit-content;
+  &:has(.show) .fa-chevron-up {
+    transform: rotate(-180deg);
+  }
+  .details__title {
+    background-color: $primary-color;
+    padding: 7px;
+    font-size: 13px;
+    font-weight: 700;
+    color: white;
+    border-radius: 5px;
+    display: flex;
+    justify-content: space-between;
+    .fa-chevron-up {
+      transition: transform 0.5s ease-in-out;
+    }
+    @media(min-width: 1024px) {
+      font-size: 18px;
+      padding: 15px;
+    }
+  }
+  .details__content {
+    display: grid;
+    transition: grid-template-rows 0.5s ease-out, padding 0.5s ease-out;
+    * {
+      overflow: hidden;
+    }
+  }
+  .details__content.show {
+    padding-block: 10px;
+    grid-template-rows: 1fr;
+  }
+  .details__content.hide {
+    grid-template-rows: 0fr;
+  }
+}

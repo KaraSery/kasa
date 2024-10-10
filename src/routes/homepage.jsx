@@ -2,6 +2,7 @@ import {json, useLoaderData} from "react-router-dom";
 import LodgmentList from "../components/lodgment-list";
 import './homepage.scss'
 import Data from "../../public/assets/data/data.json";
+import Banner from "../components/banner";
 
 
 export async function getData() {
@@ -11,13 +12,11 @@ export async function getData() {
 export default function Homepage() {
     const data = useLoaderData()
     return (
-        <>
-            <section id="banner">
-                <h1>Ches vous, partout et ailleurs</h1>
-            </section>
+        <div className='homepage'>
+            <Banner><h1 className='banner__title'>Ches vous, partout et ailleurs</h1></Banner>
             <section id="gallery">
-                <LodgmentList lodgments={data} />
+            <LodgmentList lodgments={data} />
             </section>
-        </>
+        </div>
     )
 }

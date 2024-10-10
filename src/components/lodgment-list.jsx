@@ -1,24 +1,20 @@
 import {Link, useLoaderData} from "react-router-dom";
 import './lodgment-list.scss'
+import LodgmentCard from "./logment-card";
 
 export default function LodgmentList(lodgments) {
-    debugger
     return (
-        <ul className="lodgment-list">
-            {lodgments.lodgments.map((item) => {
+        <div className="lodgment-list">
+            {lodgments.lodgments.map((lodgment) => {
                 return (
-                    <li key={item.id}
-                        className='lodgement-list__item'>
-                        <Link to={"detail/"+item.id}>
-                            <article className="lodgment-card">
-                                <img alt={item.description} src={item.cover}/>
-                                <h2>{item.title}</h2>
-                                <p>{item.location}</p>
-                            </article>
-                        </Link>
-                    </li>
+                    <Link
+                        key={lodgment.id}
+                        className='lodgement-list__item'
+                        to={"detail/" + lodgment.id}>
+                        <LodgmentCard lodgment={lodgment}/>
+                    </Link>
                 )
             })}
-        </ul>
+        </div>
     )
 }

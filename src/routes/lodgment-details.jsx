@@ -1,68 +1,101 @@
-import {json, useLoaderData} from "react-router-dom";
+import {useLoaderData} from "react-router-dom";
 import {getData} from "./homepage";
-import { faStar as fasStar } from '@fortawesome/free-solid-svg-icons'
-import { faStar as farStar } from '@fortawesome/free-regular-svg-icons'
+import {faStar, faChevronLeft, faChevronRight} from '@fortawesome/free-solid-svg-icons'
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 
 import './lodgment-details.scss'
+import Collapse from "../components/collapse";
+import {useState} from "react";
 
-export async function getLodgmentDetail({ params }) {
+export async function getLodgmentDetail({params}) {
     const data = await getData()
     const lodgments = await data.json()
-    return json(lodgments.find(lod => lod.id === params.id))
+    const lodgment = lodgments.find(lod => lod.id === params.id)
+    if (!lodgment) {
+        throw new Error('Lodgment not found')
+    }
+    return lodgment
+}
+
+function getRatingArray(lodgment) {
+    let ratingArrayFn = () => {
+        // Init Array
+        const arr = Array.from({length: 5}, (x, i) => i)
+        // return array of booleans that are true if index is below rating
+        return arr.map((_, i) => i < lodgment.rating)
+    }
+    return ratingArrayFn()
 }
 
 export default function LodgmentDetails() {
     const lodgment = useLoaderData()
-    let ratingArrayFn = ()=> {
-        // Init Array
-        const arr = Array.from({ length: 5 }, (x, i)=> i)
-        // return array of booleans that are true if index is below rating
-        return arr.map((_, i) => i<lodgment.rating)
+    const ratingArray = getRatingArray(lodgment)
+    const [carouselIndex, setCarouselIndex] = useState(0);
+    const maxIndex = lodgment.pictures.length - 1
+
+    function carouselPrev() {
+        let index = carouselIndex - 1
+        if (index < 0) index = maxIndex
+        setCarouselIndex(index)
     }
-    const ratingArray = ratingArrayFn()
-    console.log(ratingArray, lodgment)
-    return(
-        <section>
-            <article className="lodgment-details">
-                <img className='lodgment-details__carousel' alt={lodgment.title} src={lodgment.pictures[0]}/>
-                <h1 className='lodgment-details__title'>{lodgment.title}</h1>
-                <p className='lodgment-details__location'>{lodgment.location}</p>
-                <ul className='lodgment-details__tags-list'>{lodgment.tags.map(
-                    tag => <li key={tag} className='tags-list__item'>{tag}</li>
-                )}</ul>
-                <div className='rating-and-host'>
+
+    function carouselNext() {
+        let index = carouselIndex + 1
+        if (index > maxIndex) index = 0
+        setCarouselIndex(index)
+    }
+
+    return (
+        <div className='lodgment-details'>
+            <section>
+                <article className="lodgment-details">
+                    <div className='lodgment-details__carousel'>
+                        <FontAwesomeIcon
+                            onClick={carouselPrev}
+                            className='arrow-left'
+                            icon={faChevronLeft}/>
+                        <FontAwesomeIcon
+                            onClick={carouselNext}
+                            className='arrow-right'
+                            icon={faChevronRight}/>
+                        <span className='carousel__index'>{carouselIndex + 1}/{lodgment.pictures.length}</span>
+                        <img className='carousel__image' alt={lodgment.title} src={lodgment.pictures[carouselIndex]}/>
+                    </div>
+                    <h1 className='lodgment-details__title'>{lodgment.title}</h1>
+                    <p className='lodgment-details__location'>{lodgment.location}</p>
+                    <ul className='lodgment-details__tags-list'>{lodgment.tags.map(
+                        tag => <li key={tag} className='tags-list__item'>{tag}</li>
+                    )}</ul>
+                    <div className='rating-and-host'>
                     <span className='rating'>
-                        {ratingArray.map((isHigher, i)=> (
+                        {ratingArray.map((isHigher, i) => (
                             <FontAwesomeIcon
                                 className={isHigher ? 'rating__star fill' : 'rating__star'}
                                 key={i}
                                 /*Check if we should fill star*/
-                                icon={fasStar} />
+                                icon={faStar}/>
                         ))}
                     </span>
-                    <div className='host'>
-                        <p className='host__name'>{lodgment.host.name}</p>
-                        <img className='host__picture' alt={lodgment.host.name} src={lodgment.host.picture}/>
-                    </div>
-                </div>
-                <div className="description-and-equipments">
-                    <details className='details desription-details'>
-                        <summary className='details__summary description__summary'>Description</summary>
-                        <div className='details__content description__content'>
-                            <p className="content__text">{lodgment.description}</p>
+                        <div className='host'>
+                            <p className='host__name'>{lodgment.host.name}</p>
+                            <img className='host__picture' alt={lodgment.host.name} src={lodgment.host.picture}/>
                         </div>
-                    </details>
-                    <details className='details equipments-details'>
-                        <summary className='details__summary equipments__summary'>Equipements</summary>
-                        <ul className='details__content equipments-list'>
-                            {lodgment.equipments.map(equipment => (
-                                <li key={equipment} className="equipments-list__item">{equipment}</li>
-                            ))}
-                        </ul>
-                    </details>
-                </div>
-            </article>
-        </section>
+                    </div>
+                    <div className="description-and-equipments">
+                        <Collapse titleLevel={2} titleContent='Description'>
+                            <p className="content__text">{lodgment.description}</p>
+                        </Collapse>
+                        <Collapse titleLevel={2} titleContent='Equipements'>
+                            <ul className='equipments-list'>
+                                {lodgment.equipments.map(equipment => (
+                                    <li key={equipment} className="equipments-list__item">{equipment}</li>
+                                ))}
+                            </ul>
+                        </Collapse>
+                    </div>
+                </article>
+            </section>
+        </div>
+
     )
 }
