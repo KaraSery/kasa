@@ -1,0 +1,9 @@
+@import "../scss/variables";
+.rating {
+  .rating__star {
+    color: $gray-light;
+  }
+  .rating__star.fill {
+    color: $primary-color;
+  }
+}

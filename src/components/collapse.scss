@@ -23,14 +23,19 @@
     }
   }
   .details__content {
+    padding-inline: 20px;
     display: grid;
     transition: grid-template-rows 0.5s ease-out, padding 0.5s ease-out;
+    font-size: 12px;
+    @media (min-width: 1024px) {
+      font-size: 18px;
+    }
     * {
       overflow: hidden;
     }
   }
   .details__content.show {
-    padding-block: 10px;
+    padding-block: 20px;
     grid-template-rows: 1fr;
   }
   .details__content.hide {

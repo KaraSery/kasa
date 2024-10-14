@@ -10,10 +10,10 @@ export default function Collapse({titleLevel, titleContent, children}) {
         setCollapse(!collapse)
     }
     return(
-        <div className='details'>
+        <article className='details'>
             <CollapseTitle level={titleLevel} content={titleContent} handleClick={handleClick} className="details__title" ></CollapseTitle>
             <div className={collapse ? 'show' + ' details__content' : 'hide' + ' details__content'}>{children}</div>
-        </div>
+        </article>
     )
 }
 

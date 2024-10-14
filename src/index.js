@@ -9,7 +9,7 @@ import {
 } from 'react-router-dom';
 
 import Root from './routes/root'
-import Error404Content from "./components/error-404-content";
+import Error404Page from "./routes/error-404-page";
 
 import Homepage, {getData} from "./routes/homepage";
 import LodgmentDetails, {getLodgmentDetail} from "./routes/lodgment-details";
@@ -21,7 +21,7 @@ const router = createBrowserRouter(
         {
             path: "/",
             element: <Root />,
-            errorElement: <Error404Content />,
+            errorElement: <Error404Page />,
             children: [
                 {
                     path: '',

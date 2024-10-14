@@ -19,8 +19,6 @@ body{
   display: flex;
   min-height: 100vh;
 }
-main {
-}
 #app {
   // Make #app flex column and justify space between
   // in such way header and footer will stick to top and bottom in order
@@ -33,11 +31,10 @@ main {
     // and 100% by default
     min-height: fit-content;
     height: 100%;
-
-    padding-inline: 20px;
     padding-block: 0px 30px;
     width: 100%;
-    max-width: 1240px;
+    max-width: 1280px;
     margin-inline: auto;
+    padding-inline: 20px;
   }
 }

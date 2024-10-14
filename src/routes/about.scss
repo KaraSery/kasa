@@ -1,7 +1,20 @@
 .about {
   .banner {
+    margin-bottom: 25px;
+    @media(min-width: 1024px) {
+      margin-bottom: 50px;
+    }
     .background {
       background-image: url("../../public/assets/b9995860bb6384a77ca7dc9bf52da3be.jpeg");
+    }
+  }
+  .about-content {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    @media(min-width: 1024px) {
+      gap: 38px;
+      padding-inline: 100px;
     }
   }
 }

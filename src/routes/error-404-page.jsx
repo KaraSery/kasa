@@ -1,0 +1,22 @@
+import {Link, Outlet, useRouteError} from "react-router-dom";
+import './error-404-page.scss'
+import MainHeader from "../components/main-header";
+import MainFooter from "../components/main-footer";
+
+export default function Error404Page() {
+    let error = useRouteError();
+    console.error(error);
+    return (
+        <>
+            <MainHeader/>
+            <main>
+                <div className="error-404">
+                    <h1 className="error-404__title">404</h1>
+                    <p className="error-404__text">Oups! La page que vous demandez n'existe pas.</p>
+                    <Link to="/" className='error-404__back-home'>Retourner sur la page d'accueil</Link>
+                </div>
+            </main>
+            <MainFooter/>
+        </>
+    )
+}

@@ -5,7 +5,7 @@ export default function AboutPage() {
     return(
         <div className='about'>
             <Banner/>
-            <section id="about-content">
+            <section className="about-content">
                 <Collapse titleLevel={1} titleContent='Fiabilité'>
                     <p className="content__text">
                         Les annonces postées sur Kasa garantissent une fiabilitité total. Les photos sont conformes aus
