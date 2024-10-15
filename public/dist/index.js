@@ -5821,7 +5821,7 @@ function persistAppliedTransitions(_window, transitions) {
 
 /***/ "./node_modules/ansi-html/index.js":
 /*!*****************************************!*\
-  !*** ./node_modules/ansi-html/index.js ***!
+  !*** ./node_modules/ansi-html/index.jsx ***!
   \*****************************************/
 /***/ ((module) => {
 
@@ -6256,7 +6256,7 @@ if (typeof Promise !== 'undefined' && $ReactRefreshCurrentExports$ instanceof Pr
 
 /***/ "./src/index.js":
 /*!**********************!*\
-  !*** ./src/index.js ***!
+  !*** ./src/index.jsx ***!
   \**********************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
@@ -7524,13 +7524,13 @@ var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_
 
 /***/ "./node_modules/html-entities/lib/index.js":
 /*!*************************************************!*\
-  !*** ./node_modules/html-entities/lib/index.js ***!
+  !*** ./node_modules/html-entities/lib/index.jsx ***!
   \*************************************************/
 /***/ (function(__unused_webpack_module, exports, __webpack_require__) {
 
 "use strict";
 var __assign=this&&this.__assign||function(){__assign=Object.assign||function(t){for(var s,i=1,n=arguments.length;i<n;i++){s=arguments[i];for(var p in s)if(Object.prototype.hasOwnProperty.call(s,p))t[p]=s[p]}return t};return __assign.apply(this,arguments)};Object.defineProperty(exports, "__esModule", ({value:true}));var named_references_1=__webpack_require__(/*! ./named-references */ "./node_modules/html-entities/lib/named-references.js");var numeric_unicode_map_1=__webpack_require__(/*! ./numeric-unicode-map */ "./node_modules/html-entities/lib/numeric-unicode-map.js");var surrogate_pairs_1=__webpack_require__(/*! ./surrogate-pairs */ "./node_modules/html-entities/lib/surrogate-pairs.js");var allNamedReferences=__assign(__assign({},named_references_1.namedReferences),{all:named_references_1.namedReferences.html5});function replaceUsingRegExp(macroText,macroRegExp,macroReplacer){macroRegExp.lastIndex=0;var replaceMatch=macroRegExp.exec(macroText);var replaceResult;if(replaceMatch){replaceResult="";var replaceLastIndex=0;do{if(replaceLastIndex!==replaceMatch.index){replaceResult+=macroText.substring(replaceLastIndex,replaceMatch.index)}var replaceInput=replaceMatch[0];replaceResult+=macroReplacer(replaceInput);replaceLastIndex=replaceMatch.index+replaceInput.length}while(replaceMatch=macroRegExp.exec(macroText));if(replaceLastIndex!==macroText.length){replaceResult+=macroText.substring(replaceLastIndex)}}else{replaceResult=macroText}return replaceResult}var encodeRegExps={specialChars:/[<>'"&]/g,nonAscii:/[<>'"&\u0080-\uD7FF\uE000-\uFFFF]|[\uD800-\uDBFF][\uDC00-\uDFFF]|[\uD800-\uDBFF](?![\uDC00-\uDFFF])|(?:[^\uD800-\uDBFF]|^)[\uDC00-\uDFFF]/g,nonAsciiPrintable:/[<>'"&\x01-\x08\x11-\x15\x17-\x1F\x7f-\uD7FF\uE000-\uFFFF]|[\uD800-\uDBFF][\uDC00-\uDFFF]|[\uD800-\uDBFF](?![\uDC00-\uDFFF])|(?:[^\uD800-\uDBFF]|^)[\uDC00-\uDFFF]/g,nonAsciiPrintableOnly:/[\x01-\x08\x11-\x15\x17-\x1F\x7f-\uD7FF\uE000-\uFFFF]|[\uD800-\uDBFF][\uDC00-\uDFFF]|[\uD800-\uDBFF](?![\uDC00-\uDFFF])|(?:[^\uD800-\uDBFF]|^)[\uDC00-\uDFFF]/g,extensive:/[\x01-\x0c\x0e-\x1f\x21-\x2c\x2e-\x2f\x3a-\x40\x5b-\x60\x7b-\x7d\x7f-\uD7FF\uE000-\uFFFF]|[\uD800-\uDBFF][\uDC00-\uDFFF]|[\uD800-\uDBFF](?![\uDC00-\uDFFF])|(?:[^\uD800-\uDBFF]|^)[\uDC00-\uDFFF]/g};var defaultEncodeOptions={mode:"specialChars",level:"all",numeric:"decimal"};function encode(text,_a){var _b=_a===void 0?defaultEncodeOptions:_a,_c=_b.mode,mode=_c===void 0?"specialChars":_c,_d=_b.numeric,numeric=_d===void 0?"decimal":_d,_e=_b.level,level=_e===void 0?"all":_e;if(!text){return""}var encodeRegExp=encodeRegExps[mode];var references=allNamedReferences[level].characters;var isHex=numeric==="hexadecimal";return replaceUsingRegExp(text,encodeRegExp,(function(input){var result=references[input];if(!result){var code=input.length>1?surrogate_pairs_1.getCodePoint(input,0):input.charCodeAt(0);result=(isHex?"&#x"+code.toString(16):"&#"+code)+";"}return result}))}exports.encode=encode;var defaultDecodeOptions={scope:"body",level:"all"};var strict=/&(?:#\d+|#[xX][\da-fA-F]+|[0-9a-zA-Z]+);/g;var attribute=/&(?:#\d+|#[xX][\da-fA-F]+|[0-9a-zA-Z]+)[;=]?/g;var baseDecodeRegExps={xml:{strict:strict,attribute:attribute,body:named_references_1.bodyRegExps.xml},html4:{strict:strict,attribute:attribute,body:named_references_1.bodyRegExps.html4},html5:{strict:strict,attribute:attribute,body:named_references_1.bodyRegExps.html5}};var decodeRegExps=__assign(__assign({},baseDecodeRegExps),{all:baseDecodeRegExps.html5});var fromCharCode=String.fromCharCode;var outOfBoundsChar=fromCharCode(65533);var defaultDecodeEntityOptions={level:"all"};function getDecodedEntity(entity,references,isAttribute,isStrict){var decodeResult=entity;var decodeEntityLastChar=entity[entity.length-1];if(isAttribute&&decodeEntityLastChar==="="){decodeResult=entity}else if(isStrict&&decodeEntityLastChar!==";"){decodeResult=entity}else{var decodeResultByReference=references[entity];if(decodeResultByReference){decodeResult=decodeResultByReference}else if(entity[0]==="&"&&entity[1]==="#"){var decodeSecondChar=entity[2];var decodeCode=decodeSecondChar=="x"||decodeSecondChar=="X"?parseInt(entity.substr(3),16):parseInt(entity.substr(2));decodeResult=decodeCode>=1114111?outOfBoundsChar:decodeCode>65535?surrogate_pairs_1.fromCodePoint(decodeCode):fromCharCode(numeric_unicode_map_1.numericUnicodeMap[decodeCode]||decodeCode)}}return decodeResult}function decodeEntity(entity,_a){var _b=(_a===void 0?defaultDecodeEntityOptions:_a).level,level=_b===void 0?"all":_b;if(!entity){return""}return getDecodedEntity(entity,allNamedReferences[level].entities,false,false)}exports.decodeEntity=decodeEntity;function decode(text,_a){var _b=_a===void 0?defaultDecodeOptions:_a,_c=_b.level,level=_c===void 0?"all":_c,_d=_b.scope,scope=_d===void 0?level==="xml"?"strict":"body":_d;if(!text){return""}var decodeRegExp=decodeRegExps[level][scope];var references=allNamedReferences[level].entities;var isAttribute=scope==="attribute";var isStrict=scope==="strict";return replaceUsingRegExp(text,decodeRegExp,(function(entity){return getDecodedEntity(entity,references,isAttribute,isStrict)}))}exports.decode=decode;
-//# sourceMappingURL=./index.js.map
+//# sourceMappingURL=./index.jsx.map
 
 /***/ }),
 
@@ -7572,7 +7572,7 @@ Object.defineProperty(exports, "__esModule", ({value:true}));exports.fromCodePoi
 
 /***/ "./node_modules/object-assign/index.js":
 /*!*********************************************!*\
-  !*** ./node_modules/object-assign/index.js ***!
+  !*** ./node_modules/object-assign/index.jsx ***!
   \*********************************************/
 /***/ ((module) => {
 
@@ -8408,7 +8408,7 @@ module.exports = function(isValidElement, throwOnDirectAccess) {
 
 /***/ "./node_modules/prop-types/index.js":
 /*!******************************************!*\
-  !*** ./node_modules/prop-types/index.js ***!
+  !*** ./node_modules/prop-types/index.jsx ***!
   \******************************************/
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
@@ -38429,7 +38429,7 @@ if (false) {} else {
 
 /***/ "./node_modules/react-dom/index.js":
 /*!*****************************************!*\
-  !*** ./node_modules/react-dom/index.js ***!
+  !*** ./node_modules/react-dom/index.jsx ***!
   \*****************************************/
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
@@ -38665,7 +38665,7 @@ exports.typeOf = typeOf;
 
 /***/ "./node_modules/react-is/index.js":
 /*!****************************************!*\
-  !*** ./node_modules/react-is/index.js ***!
+  !*** ./node_modules/react-is/index.jsx ***!
   \****************************************/
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
@@ -39366,7 +39366,7 @@ if (false) {} else {
 
 /***/ "./node_modules/react-router-dom/dist/index.js":
 /*!*****************************************************!*\
-  !*** ./node_modules/react-router-dom/dist/index.js ***!
+  !*** ./node_modules/react-router-dom/dist/index.jsx ***!
   \*****************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
@@ -40905,14 +40905,14 @@ function useViewTransitionState(to, opts) {
 //#endregion
 
 
-//# sourceMappingURL=index.js.map
+//# sourceMappingURL=index.jsx.map
 
 
 /***/ }),
 
 /***/ "./node_modules/react-router/dist/index.js":
 /*!*************************************************!*\
-  !*** ./node_modules/react-router/dist/index.js ***!
+  !*** ./node_modules/react-router/dist/index.jsx ***!
   \*************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
@@ -42444,7 +42444,7 @@ function createMemoryRouter(routes, opts) {
 }
 
 
-//# sourceMappingURL=index.js.map
+//# sourceMappingURL=index.jsx.map
 
 
 /***/ }),
@@ -46547,7 +46547,7 @@ if (
 
 /***/ "./node_modules/react/index.js":
 /*!*************************************!*\
-  !*** ./node_modules/react/index.js ***!
+  !*** ./node_modules/react/index.jsx ***!
   \*************************************/
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
@@ -47224,7 +47224,7 @@ if (
 
 /***/ "./node_modules/scheduler/index.js":
 /*!*****************************************!*\
-  !*** ./node_modules/scheduler/index.js ***!
+  !*** ./node_modules/scheduler/index.jsx ***!
   \*****************************************/
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
@@ -48085,7 +48085,7 @@ module.exports = __webpack_require__.p + "43fc7e7e317ea9ed31ee.png";
 /***/ ((__unused_webpack_module, __unused_webpack_exports, __webpack_require__) => {
 
 var __resourceQuery = "?sockProtocol=http";
-/* provided dependency */ var __react_refresh_error_overlay__ = __webpack_require__(/*! ./node_modules/@pmmmwh/react-refresh-webpack-plugin/overlay/index.js */ "./node_modules/@pmmmwh/react-refresh-webpack-plugin/overlay/index.js");
+/* provided dependency */ var __react_refresh_error_overlay__ = __webpack_require__(/*! ./node_modules/@pmmmwh/react-refresh-webpack-plugin/overlay/index.jsx */ "./node_modules/@pmmmwh/react-refresh-webpack-plugin/overlay/index.js");
 /* provided dependency */ var __react_refresh_socket__ = __webpack_require__(/*! ./node_modules/@pmmmwh/react-refresh-webpack-plugin/sockets/WDSSocket.js */ "./node_modules/@pmmmwh/react-refresh-webpack-plugin/sockets/WDSSocket.js");
 /* global __react_refresh_error_overlay__, __react_refresh_socket__, __resourceQuery */
 
@@ -49003,7 +49003,7 @@ module.exports = RuntimeErrorContainer;
 
 /***/ "./node_modules/@pmmmwh/react-refresh-webpack-plugin/overlay/index.js":
 /*!****************************************************************************!*\
-  !*** ./node_modules/@pmmmwh/react-refresh-webpack-plugin/overlay/index.js ***!
+  !*** ./node_modules/@pmmmwh/react-refresh-webpack-plugin/overlay/index.jsx ***!
   \****************************************************************************/
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
@@ -52630,7 +52630,7 @@ module.exports = !!Object.getOwnPropertySymbols && !fails(function () {
 
 /***/ "./node_modules/core-js-pure/internals/to-absolute-index.js":
 /*!******************************************************************!*\
-  !*** ./node_modules/core-js-pure/internals/to-absolute-index.js ***!
+  !*** ./node_modules/core-js-pure/internals/to-absolute-index.jsx ***!
   \******************************************************************/
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 

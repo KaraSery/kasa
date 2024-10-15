@@ -1,8 +1,7 @@
 import {json, useLoaderData} from "react-router-dom";
 import LodgmentList from "../components/lodgment-list";
 import './homepage.scss'
-import Data from "../../public/assets/data/data.json";
-import Banner from "../components/banner";
+import Banner from "../components/banner.jsx";
 
 
 export async function getData() {
