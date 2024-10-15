@@ -19,7 +19,7 @@ import AboutPage from "./routes/about";
 const router = createBrowserRouter(
     [
         {
-            path: "/",
+            path: "/kasa",
             element: <Root />,
             errorElement: <Error404Page />,
             children: [

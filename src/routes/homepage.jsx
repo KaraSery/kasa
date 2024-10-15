@@ -5,7 +5,7 @@ import Banner from "../components/banner.jsx";
 
 
 export async function getData() {
-    return await fetch('/assets/data/data.json')
+    return await fetch('/kasa/assets/data/data.json')
 }
 
 export default function Homepage() {
