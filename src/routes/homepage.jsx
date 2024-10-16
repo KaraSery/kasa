@@ -9,7 +9,7 @@ export async function getData() {
 }
 
 export default function Homepage() {
-    const data = useLoaderData()
+    const data = JSON.parse(useLoaderData())
     return (
         <div className='homepage'>
             <Banner><h1 className='banner__title'>Ches vous, partout et ailleurs</h1></Banner>
