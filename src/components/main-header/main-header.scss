@@ -21,7 +21,7 @@
       font-weight: 500;
       min-width: max-content;
       font-size: 12px;
-      &:hover {
+      &:hover, &.active {
         text-decoration: underline;
       }
       @media (min-width: 1024px) {

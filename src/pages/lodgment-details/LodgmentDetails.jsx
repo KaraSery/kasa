@@ -1,9 +1,9 @@
 import {useLoaderData} from "react-router-dom";
-import {getData} from "./homepage";
+import {getData} from "../homepage/Home.jsx";
 import './lodgment-details.scss'
-import Collapse from "../components/collapse";
-import Carousel from "../components/carousel";
-import LodgmentRating from "../components/lodgment-rating";
+import Collapse from "../../components/collapse/Collapse.jsx";
+import Carousel from "../../components/carousel/Carousel.jsx";
+import LodgmentRating from "../../components/lodgment-rating/LodgmentRating.jsx";
 
 export async function getLodgmentDetail({params}) {
     const data = await getData()

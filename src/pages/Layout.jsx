@@ -1,8 +1,8 @@
 import {Outlet} from "react-router-dom";
-import MainHeader from "../components/main-header";
-import MainFooter from "../components/main-footer";
+import MainHeader from "../components/main-header/MainHeader.jsx";
+import MainFooter from "../components/main-footer/MainFooter.jsx";
 
-export default function Root() {
+export default function Layout() {
     return (
         <>
             <MainHeader/>

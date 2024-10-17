@@ -1,0 +1,14 @@
+.lodgment-list {
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+  @media (min-width: 1024px) {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 50px;
+    padding: 60px;
+  }
+  .lodgement-list__item {
+    z-index: 1;
+  }
+}

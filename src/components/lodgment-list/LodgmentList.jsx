@@ -1,6 +1,6 @@
 import {Link, useLoaderData} from "react-router-dom";
 import './lodgment-list.scss'
-import LodgmentCard from "./logment-card";
+import LodgmentCard from "../lodgment-card/LodgmentCard.jsx";
 
 export default function LodgmentList(lodgments) {
     return (

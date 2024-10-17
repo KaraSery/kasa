@@ -1,5 +1,5 @@
-import Collapse from "../components/collapse";
-import Banner from "../components/banner";
+import Collapse from "../../components/collapse/Collapse.jsx";
+import Banner from "../../components/banner/Banner.jsx";
 import './about.scss'
 export default function AboutPage() {
     return(

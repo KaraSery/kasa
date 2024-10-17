@@ -8,24 +8,24 @@ import {
     RouterProvider
 } from 'react-router-dom';
 
-import Root from './routes/root'
-import Error404Page from "./routes/error-404-page";
+import Layout from './pages/Layout.jsx'
+import Error404 from "./pages/error-404/Error404.jsx";
 
-import Homepage, {getData} from "./routes/homepage";
-import LodgmentDetails, {getLodgmentDetail} from "./routes/lodgment-details";
-import AboutPage from "./routes/about";
+import Home, {getData} from "./pages/homepage/Home.jsx";
+import LodgmentDetails, {getLodgmentDetail} from "./pages/lodgment-details/LodgmentDetails.jsx";
+import AboutPage from "./pages/about/About.jsx";
 
 
 const router = createBrowserRouter(
     [
         {
             path: "/kasa",
-            element: <Root />,
-            errorElement: <Error404Page />,
+            element: <Layout />,
+            errorElement: <Error404 />,
             children: [
                 {
                     path: '',
-                    element: <Homepage />,
+                    element: <Home />,
                     loader: getData,
                 },
                 {

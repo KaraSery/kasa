@@ -1,7 +1,6 @@
 import './collapse.scss'
 import React from 'react'
-import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
-import {faChevronUp} from "@fortawesome/free-solid-svg-icons";
+import CollapseTitle from "./CollapseTitle.jsx";
 
 
 export default function Collapse({titleLevel, titleContent, children}) {
@@ -14,20 +13,5 @@ export default function Collapse({titleLevel, titleContent, children}) {
             <CollapseTitle level={titleLevel} content={titleContent} handleClick={handleClick} className="details__title" ></CollapseTitle>
             <div className={collapse ? 'show' + ' details__content' : 'hide' + ' details__content'}>{children}</div>
         </article>
-    )
-}
-
-function CollapseTitle({level, content, handleClick, className}) {
-    if (level>6 || level<1) {
-        throw new Error('Title level must be in range 6-1')
-    }
-    return React.createElement(
-        `h${level}`,
-        {
-            onClick: handleClick,
-            className: className
-        },
-        content,
-        <FontAwesomeIcon icon={faChevronUp}/>
     )
 }

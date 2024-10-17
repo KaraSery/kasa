@@ -1,9 +1,9 @@
 import {Link, Outlet, useRouteError} from "react-router-dom";
 import './error-404-page.scss'
-import MainHeader from "../components/main-header";
-import MainFooter from "../components/main-footer";
+import MainHeader from "../../components/main-header/MainHeader.jsx";
+import MainFooter from "../../components/main-footer/MainFooter.jsx";
 
-export default function Error404Page() {
+export default function Error404() {
     let error = useRouteError();
     console.error(error);
     return (
